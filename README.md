@@ -34,3 +34,6 @@ uvicorn ai_agent.main:app --reload --host 0.0.0.0 --port 8123 --app-dir src
 
 - 默认不开启 embedding，RAG 会使用本地关键词检索
 - 如果后续你有兼容的 embedding 模型，再填写 `EMBEDDING_MODEL`、`EMBEDDING_API_KEY`、`EMBEDDING_BASE_URL`
+- 如果填写 `ELASTICSEARCH_URL`，知识库会在启动时同步到 `ELASTICSEARCH_INDEX`，检索切换为 Elasticsearch 模式：
+  - 未配置 embedding 时使用 Elasticsearch BM25
+  - 配置 embedding 时使用 BM25 + kNN 向量召回，并通过 RRF 融合排序

@@ -34,6 +34,13 @@ class Settings(BaseSettings):
     embedding_model: str = Field(default="", alias="EMBEDDING_MODEL")
     embedding_api_key: str = Field(default="", alias="EMBEDDING_API_KEY")
     embedding_base_url: str = Field(default="", alias="EMBEDDING_BASE_URL")
+    # Elasticsearch 知识库配置
+    elasticsearch_url: str = Field(default="", alias="ELASTICSEARCH_URL")
+    elasticsearch_index: str = Field(default="love_knowledge", alias="ELASTICSEARCH_INDEX")
+    elasticsearch_username: str = Field(default="", alias="ELASTICSEARCH_USERNAME")
+    elasticsearch_password: str = Field(default="", alias="ELASTICSEARCH_PASSWORD")
+    elasticsearch_api_key: str = Field(default="", alias="ELASTICSEARCH_API_KEY")
+    elasticsearch_verify_certs: bool = Field(default=True, alias="ELASTICSEARCH_VERIFY_CERTS")
     # 外部服务配置
     search_api_key: str = Field(default="", alias="SEARCH_API_KEY")
     # 文件存储路径的配置
